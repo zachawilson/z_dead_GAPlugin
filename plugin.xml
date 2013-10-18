@@ -14,11 +14,11 @@
   <license>MIT</license>
 
   <js-module src="www/GAPlugin.js" name="GAPlugin">
-      <clobbers target="GAPlugin" />
+      <clobbers target="window.analytics" />
   </js-module>
 
   <engines>
-      <engine name="cordova" version="&gt;=3.0.0" />
+      <engine name="cordova" version="&gt;=3.1.0" />
   </engines>
 
     <platform name="android">
@@ -41,6 +41,7 @@
           </feature>
         </config-file>
 
+        <header-file src="src/ios/GAPlugin.h" />
         <source-file src="src/ios/GAPlugin.m" />
         <source-file src="src/ios/GoogleAnalytics.a" framework="true" />
 
@@ -49,9 +50,9 @@
         <header-file src="src/ios/GAITracker.h" />
         <header-file src="src/ios/GAITrackedViewController.h" />
         <header-file src="src/ios/GAI.h" />
-        <header-file src="src/ios/GAPlugin.h" />
 
         <framework src="CoreData.framework" />
         <framework src="SystemConfiguration.framework" />
     </platform>
+
 </plugin>
