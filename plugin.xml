@@ -1,48 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    id="com.adobe.plugins.GAPlugin"
-    version="2.3.0">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.adobe.plugins.GAPlugin"
+        version="2.3.0">
 
     <name>GAPlugin</name>
-  <author>Bob Easterday</author>
+    <author>Bob Easterday</author>
 
-  <description>
-    This plugin allows you to post usage information to your Google Analytics account.
-  </description>
+    <description>
+        This plugin allows you to post usage information to your Google Analytics account.
+    </description>
 
-  <license>MIT</license>
+    <license>MIT</license>
 
-  <js-module src="www/GAPlugin.js" name="GAPlugin">
-      <clobbers target="window.analytics" />
-  </js-module>
+    <js-module src="www/GAPlugin.js" name="GAPlugin">
+        <clobbers target="window.analytics" />
+    </js-module>
 
-  <engines>
-      <engine name="cordova" version="&gt;=3.1.0" />
-  </engines>
+    <engines>
+        <engine name="cordova" version="&gt;=3.1.0" />
+    </engines>
 
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="GAPlugin" >
-        <param name="android-package" value="com.adobe.plugins.GAPlugin"/>
-      </feature>
+            <feature name="GAPlugin" >
+                <param name="android-package" value="com.adobe.plugins.GAPlugin"/>
+            </feature>
         </config-file>
 
         <source-file src="src/android/GAPlugin.java"
-                target-dir="src/com/adobe/plugins" />
+                     target-dir="src/com/adobe/plugins" />
         <source-file src="src/android/libGoogleAnalyticsV2.jar"
-                target-dir="libs" />
+                     target-dir="libs" />
     </platform>
 
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-          <feature name="GAPlugin">
-            <param name="ios-package" value="GAPlugin"/>
-          </feature>
+            <feature name="GAPlugin">
+                <param name="ios-package" value="GAPlugin"/>
+            </feature>
         </config-file>
-
-        <header-file src="src/ios/GAPlugin.h" />
-        <source-file src="src/ios/GAPlugin.m" />
+        
         <source-file src="src/ios/GoogleAnalytics.a" framework="true" />
 
         <header-file src="src/ios/GAITransactionItem.h" />
@@ -51,8 +49,10 @@
         <header-file src="src/ios/GAITrackedViewController.h" />
         <header-file src="src/ios/GAI.h" />
 
-        <framework src="CoreData.framework" />
-        <framework src="SystemConfiguration.framework" />
+        <header-file src="src/ios/GAPlugin.h" />
+        <source-file src="src/ios/GAPlugin.m" />
+
+
     </platform>
 
 </plugin>
