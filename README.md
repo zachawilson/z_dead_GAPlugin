@@ -65,6 +65,8 @@ Example:
 	
 	gaPlugin.trackEvent( nativePluginResultHandler, nativePluginErrorHandler, "Button", "Click", "event only", 1);
 
+###.setVariable()
+
 TrackEvent covers most of what you need, but there may be cases where you want to pass arbitrary data.
 setVariable() lets you pass values by index (Up to 20, on free accounts).
 For free accounts, each variable is given an index from 1 - 20. Reusing an existing index simply overwrites
@@ -76,9 +78,6 @@ setVariable() accepts 4 arguments;
 	3)	index - the numerical index representing one of your variable slots (1-20).
 	4)	value - Arbitrary string data associated with the index.
 
-###.setVariable()
-
-To set a Variable (Custom Dimension), call setVariable().
 
 Example:
 
