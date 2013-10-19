@@ -36,6 +36,7 @@ After onDeviceReady, create a local var and startup the plugin like so;
 
 To get things rolling you need to call init() when your device ready function fires.
 Init takes 4 arguments;
+
 	1)	success - a function that will be called on success
 	2)	fail - a function that will be called on error.
 	3)	id - Your Google Analytics account ID of the form; UA-XXXXXXXX-X
