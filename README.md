@@ -22,6 +22,8 @@ For additional info, take a look at the [Plugman Documentation](https://github.c
 ## Usage
 The plugin creates the object `window.plugins.gaPlugin
 
+###.init()
+
 After onDeviceReady, create a local var and startup the plugin like so;
 
 	var gaPlugin;
@@ -30,6 +32,7 @@ After onDeviceReady, create a local var and startup the plugin like so;
 		gaPlugin = window.plugins.gaPlugin;
 		gaPlugin.init(successHandler, errorHandler, "UA-12345678-1", 10);
 	}
+
 
 To get things rolling you need to call init() when your device ready function fires.
 Init takes 4 arguments;
@@ -45,6 +48,8 @@ Init takes 4 arguments;
 Example:
 	
 	gaPlugin.init(successHandler, errorHandler, "UA-12345678-1", 10);
+
+###.trackEvent()
 	
 To track an event, call (oddly enough) trackEvent().
 trackEvent takes 6 arguments;
@@ -71,6 +76,10 @@ setVariable() accepts 4 arguments;
 	3)	index - the numerical index representing one of your variable slots (1-20).
 	4)	value - Arbitrary string data associated with the index.
 
+###.setVariable()
+
+To set a Variable (Custom Dimension), call setVariable().
+
 Example:
 
 	gaPlugin.setVariable( nativePluginResultHandler, nativePluginErrorHandler, 1, "Purple");
@@ -78,6 +87,8 @@ Example:
 ####Important:
 Variable values are assigned to what Google calls Custom Dimensions in the dashboard. Prior to calling setVariable() in your client for a particular index, you need to create a slot in the GA dashboard. When you do so, you will be able to assign a name for the dimension, its index, and its scope. More info on creating Custom Dimensions can be found [here](https://support.google.com/analytics/answer/2709829?hl=en&ref_topic=2709827).	
 The next event or page view you send after setVariable will contain your variable at Custom Dimension specified by the index value you passed in the setVariable call. This [Example](https://github.com/phonegap-build/GAPlugin/blob/master/Example/index.html) app shows how you might use that next event to specify a label for the variable you just set.
+
+###.trackPage()
 	
 In addition to events and variables, you can also log page visits with trackPage(). Unlike variables, however, page hits do not require a subsequent call to trackEvent() as they are considered unique events in and of themselves.
 trackPage() takes 3 arguments;
@@ -90,6 +101,8 @@ Example:
 
 	gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "some.url.com");
 	
+###.exit()
+
 Finally, when your app shuts down, you'll want to cleanup after yourself by calling exit();
 exit() accepts 2 arguments;
 
