@@ -51,7 +51,9 @@
 
         <header-file src="src/ios/GAPlugin.h" />
         <source-file src="src/ios/GAPlugin.m" />
-
+        
+        <framework src="CoreData.framework" />
+        <framework src="SystemConfiguration.framework" />
 
     </platform>
 
